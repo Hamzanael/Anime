@@ -1,0 +1,103 @@
+<%- include('logedheader'); -%>
+
+
+ <!-- carousel -->
+ <section class="testimonial">
+
+  <div id="slideshow" class="carousel slide" data-ride="carousel" data-keyboard="true">
+      <div class="carousel-inner">
+
+          <div class="carousel-item active " data-interval="1000">
+              <img src=  class="d-block rounded mx-auto" alt="...">
+              <div class="carousel-caption ">
+                  <h5>Welcome to M&H anime dear <%=userName%> </h5>
+                  <p>  We will display the greatest Anime only </p>
+              </div>
+
+          </div>
+
+              <% Animes.forEach(Anime => { %>
+               
+              
+          <div class="carousel-item  " data-interval="2000">
+              <img src=<%= Anime.CoverImg %>  class="d-block rounded mx-auto" alt="...">
+              <div class="carousel-caption ">
+                  <h5><%=Anime.title %> </h5>
+                  <p><%=Anime.discription %> </p>
+              </div>
+
+          </div>
+
+          <% }) %>
+          <div>
+              
+          </div>
+         
+
+      </div>
+      
+  </div>
+
+  <section class="mid-nav">
+    <select name="" id="select-type" >
+       <option value="1">Last ep</option>
+       <option value="2">all animes</option> 
+    </select>
+</section>
+
+
+<section class="Content">
+  <% all.forEach(ep => { %>
+
+  <div class="MovieItem">
+ 
+<a title=<%=ep.title%>  href=<%=ep.link%> > 
+                  <div class="numr">
+                  <div> <%=ep.epNumber%> </div>
+                  <div></div>
+              </div>
+                   <img src=<%=ep.imgLink %>  alt="" class="BGMovieItem">
+             
+              <div class="content">
+                    <div class="text">
+                <%=ep.discribtion %> 
+              </div>
+          </div>
+        </a>
+  </div>
+  <% }) %>
+</section>
+
+
+
+
+
+
+<script>
+  $(function(){
+  $("#ani").hide(0);
+
+      $("#select-type").change(function(){
+          var  selectValue = $(this).children("option:selected").val();
+          switch(selectValue){
+              case "1": $("#ani").fadeOut(2500);
+                      $("#ep").fadeIn(3000); break;
+
+              case "2":$("#ani").fadeIn(3000);
+                      $("#ep").fadeOut(2500); break;
+  
+
+          }
+      });
+  });
+  </script>
+<%- include('footer'); -%> 
+
+  
+
+
+
+
+
+
+

@@ -1,0 +1,139 @@
+<% if (logged) { %>
+    <%- include('logedheader'); -%>
+<% } %>
+<% if (!logged) { %>
+    <%- include('header'); -%>
+<% } %>
+
+<!-- <div class="side" id="side">
+<ul>
+    <a href="http://43folderstech.net">  <li> Facebook</li></a> 
+    <a href="http://43folderstech.net">  <li style="background-color: red;"> Gmail</li></a>
+  </ul>
+</div> -->
+    <!-- carousel -->
+    <section class="testimonial">
+
+        <div id="slideshow" class="carousel slide" data-ride="carousel" data-keyboard="true">
+            <div class="carousel-inner">
+
+                <div class="carousel-item active " data-interval="1000">
+                    <img src="/imeges/m.png"   class="d-block rounded mx-auto" alt="...">
+                    <div class="carousel-caption ">
+                        <h5>Welcome to M&H anime</h5>
+                        <p>  We will display the greatest Anime only </p>
+                    </div>
+
+                </div>
+
+                    <% Animes.forEach(Anime => { %>
+                     
+                    
+                <div class="carousel-item  " data-interval="2000">
+                    <img src=<%= Anime.CoverImg %>  class="d-block rounded mx-auto" alt="...">
+                    <div class="carousel-caption ">
+                        <h5><%=Anime.title %> </h5>
+                        <a style="color: white;" href="animePage/<%=Anime.title%>"><p><%=Anime.discription %> </p></a>
+                    </div>
+
+                </div>
+
+                <% }) %>
+                <div>
+                    
+                </div>
+
+            </div>
+            <a class="carousel-control-prev" href="#slideshow" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#slideshow" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+        </div>
+
+    </section>
+
+<section class="mid-nav">
+<select name="" id="select-type" >
+   <option data-micron="pop" value="1">Last ep</option>
+   <option  data-micron="pop" value="2">all animes</option> 
+</select>
+
+</section>
+
+
+    <section class="Content" id="ep">
+        <% all.forEach(ep => { %>
+
+        <div class="MovieItem">
+       
+    <a title=<%=ep.title%>  href="/epPgae/<%= ep.title %>/<%=ep.epNumber%>"/> 
+                        <div class="numr">
+                        <div> <%=ep.epNumber%> </div>
+                     
+                    </div>
+                         <img src=<%=ep.imgLink %>  alt="" class="BGMovieItem">
+                   
+                    <div class="content">
+                          <div class="text">
+                      <%=ep.discribtion %> 
+                    </div>
+                </div>
+              </a>
+        </div>
+        <% }) %>
+    </section>
+
+    <section class="Content" id="ani">
+        <% Animes.forEach(anime => { %>
+
+        <div class="MovieItem">
+       
+    <a title=<%=anime.title%>  href="/animePage/<%=anime.title%>" > 
+                        <div class="numr">
+                        <div> <%=anime.epNumbers%> </div>
+                        <div></div>
+                    </div>
+                         <img src=<%=anime.CoverImg %>  alt="" class="BGMovieItem">
+                   
+                    <div class="content">
+                          <div class="text">
+                      <%=anime.title %> 
+                    </div>
+                </div>
+              </a>
+        </div>
+        <% }) %>
+    </section>
+
+
+
+
+
+    <script>
+        $(function(){
+        $("#ani").hide(0);
+   //      $("#side").hide(0);   
+            $("#select-type").change(function(){
+                var  selectValue = $(this).children("option:selected").val();
+                switch(selectValue){
+                    case "1": $("#ani").fadeOut(1000);
+                            $("#ep").fadeIn(1500); break;
+
+                    case "2":$("#ani").fadeIn(1000);
+                            $("#ep").fadeOut(1500); break;
+
+        
+
+                }
+            });
+        });
+        </script>
+
+
+
+
+    <%- include('footer'); -%> 

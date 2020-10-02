@@ -1,0 +1,56 @@
+<%- include('header'); -%>
+
+<div class="container mt-5">
+  <h1>Welcome to M&H anime please sign up to get the full access from our website</h1>
+
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="card">
+        <div class="card-body">
+
+          <!-- Makes POST request to /login route -->
+          <form action="/signup" method="POST">
+            <div class="form-group">
+              <label for="name">User name</label>
+              <input type="text" class="form-control" name="name">
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" name="username">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" name="password">
+            </div>
+            <button type="submit" class="btn btn-dark">Login</button>
+          </form>
+          <% if (wrong) { %>
+            <div class="alert alert-danger animate" role="alert">
+              The email is exist try to <a href="/login"> log in</a> or use other email
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="card" style="margin-top: 2rem;">
+        <div class="card-body" style="width: 70%;">
+          <a class="btn btn-block btn-social btn-google" href="/auth/google" role="button">
+            <i class="fab fa-google"></i>
+            Sign Up with Google
+          </a>
+        </div>
+        <div class="card-body" style="width: 70%;">
+            <a class="btn btn-block btn-social btn-facebook" href="/auth/facebook" role="button">
+              <i class="fab fa-facebook"></i>
+              Sign Up with Facebook
+            </a>
+          </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<%- include('footer'); -%>

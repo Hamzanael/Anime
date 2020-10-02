@@ -1,0 +1,91 @@
+<% if (logged) { %>
+<%- include('logedheader'); -%>
+<% } %>
+<% if (!logged) { %>
+<%- include('header'); -%>
+<% } %>
+<section class="epPage">
+    <div class="container">
+        <h1 style="text-align: center; margin: 1.5rem; "><%=ep.discribtion %> </h1>
+        <div class=" row"> 
+            <div class="col-lg-6" style="text-align: center;">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item" style="margin-right: 1rem;">
+                        <a class="page-link" style="background-color: red;color: wheat;" href=<%= ep.server1 %> 
+                            onclick="return loadIframe('ifrm', this.href);"> <i class="fab fa-maxcdn" style="padding-right: 1rem;"></i> Mega</a>
+                    </li>
+                    <li class="page-item" style="margin-left: 1rem;">
+                        <a class="page-link" style="color: blue; background-color: green;" href=<%= ep.server2 %>
+                            onclick="return loadIframe('ifrm', this.href);"> <i style="padding-right: 1rem;"
+                            class="fab fa-google-drive"></i> Google Drive</a>
+                    </li>
+                </ul>
+                <div class="iframe">
+                    <iframe name="ifrm" id="ifrm" src=<%=ep.server1 %>
+                        style="width:100%;height: 300px;" frameborder="0">
+                        Your browser doesn't support iframes.
+                    </iframe>
+                </div>
+
+                <div class="dropdown show" style="background-color: inherit;">
+                    <a class="btn btn-dark " href=""  role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" style="padding:1rem; margin-top: 1rem;">
+                        <i class="fas fa-download"></i> تحميل الحلقه
+                    </a>
+
+                    <div class="dropdown-menu" style="background-color: inherit; aria-labelledby=" dropdownMenuLink">
+                        <a class="dropdown-item" style="background-color: red;padding: 1rem; color: white;"  href=<%= ep.link1 %>><i class="fab fa-maxcdn" style="padding-right: 1rem;"></i> Mega</a>
+                        <a class="dropdown-item" style="background-color: forestgreen;padding: 1rem;  color: white;" href=<%= ep.link2 %>> <i style="padding-right: 1rem;"
+                                class="fab fa-google-drive"></i> Google Drive</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6" style="text-align: center;">
+                <h1 ><a href="/animePage/<%= Anime.title %>" style="color: red;"><%= Anime.title %> </a></h1>
+                <div class="list-group" style="text-align: right;">
+                    <% Anime.EP.forEach(element => { %>
+                    <a href="/epPgae/<%= Anime.title %>/<%=element.epNumber%>" class="list-group-item list-group-item-action" id=<%=element.epNumber%> ><i class="fas fa-play icon-view "></i> <%= element.epNumber %>  الحلقه </a>
+                    <% }) %>
+                  </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%- include('footer'); -%>
+<script>
+    function loadIframe(iframeName, url) {
+        var $iframe = $('#' + iframeName);
+        if ($iframe.length) {
+            $iframe.attr('src', url);
+            return false;
+        }
+        return true;
+    }
+
+
+    $(function(){
+       $("#<%=ep.epNumber%>").addClass("active");
+    });
+</script>

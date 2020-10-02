@@ -1,0 +1,66 @@
+
+    <%- include('logedheader'); -%>
+<section class="Content" id="ani">
+    <% Animes.forEach(anime => { %>
+
+    <div class="MovieItem">
+                    <div class="numr">
+                    <form id="subform<%= anime.mal_id %>"> 
+                        <button type="submit" class="btn" style="color: white;" > اطلب  </button> 
+                        <input type="hidden" name="" id="in<%= anime.mal_id %>" value="<%= anime.mal_id %>">
+                        <input type="hidden" name="" id="link<%= anime.mal_id %>" value="<%=anime.url%>">
+                    </form>
+                    
+                </div>
+                     <img src=<%=anime.image_url %>  alt="" class="BGMovieItem">
+               
+                <div class="content">
+                      <div class="text">
+                        <%=anime.title%> 
+                        <br>
+                       <p style="color: blue;"> <%=anime.type%></p>
+
+                        <a class="btn" style="color: white; border-color: white; border-style:solid ;" href="<%=anime.url%>"> مزيد من المعلومات</a>
+                </div>
+
+            </div>
+         
+    </div>
+    <script>
+        $("#subform<%= anime.mal_id %>").submit(function(event) {
+         var con = "<%= anime.mal_id %>";
+        event.preventDefault();
+        ajaxPost(con);
+        alert("   تم تقديم طلبك بنجاح لانمي "+"\n" +"سوف يتم اضافته قريبا")
+        
+      });
+      function ajaxPost(con){
+      
+      // PREPARE FORM DATA
+      var formData = {
+    animeID: $("#in"+con).val(),
+    animeLink:$("#link"+con).val(),
+      }
+      
+      // DO POST
+      $.ajax({
+      type: "POST",
+      contentType: "application/json",
+      url:"/aplayForAnime",
+      data : JSON.stringify(formData),
+      dataType : 'json',
+      success : function(anime) {
+  alert (JSON.stringify(anime)); 
+      },
+      error : function(e) {
+        
+      }
+    });
+    
+  } 
+    </script>
+    
+    <% }) %>
+</section>
+
+<%- include('footer'); -%>

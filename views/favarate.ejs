@@ -1,0 +1,30 @@
+<%- include('logedheader'); -%>
+<section style="text-align: center; color: red;">
+<h2>Welcome to your favorate Page Dear <%= name %>   </h2>
+<h4>Any thing you liked will find it here </h4>
+
+</section>
+
+<section class="Content" id="ani">
+    <% Animes.forEach(anime => { %>
+
+    <div class="MovieItem">
+   
+<a title=<%=anime.title%>  href="/animePage/<%=anime.title%>" > 
+                    <div class="numr">
+                    <div> <%=anime.epNumbers%> </div>
+                    <div></div>
+                </div>
+                     <img src=<%=anime.CoverImg %>  alt="" class="BGMovieItem">
+               
+                <div class="content">
+                      <div class="text">
+                  <%=anime.title %> 
+                </div>
+            </div>
+          </a>
+    </div>
+    <% }) %>
+</section>
+
+<%- include('footer'); -%>

@@ -1,0 +1,282 @@
+<% if (logged) { %>
+<%- include('logedheader'); -%>
+<% } %>
+
+<% if (!logged) { %>
+<%- include('header'); -%>
+<% } %>
+
+<section class="anime-page">
+
+  <div class="top-page">
+    <img src=<%= Anime.CoverImg %> alt="Anime Photo">
+    <% if (logged) { %>
+    <button type="button" class="btn  btn-lg fava " id="fava"> <i class="fas fa-heart"></i></button></div>
+  <% } %>
+
+  <div class="textedit">
+    <h1><%=Anime.title%> </h1>
+    <p>
+      <%= Anime.discription %>
+    </p>
+
+  </div>
+</section>
+<section class="fava">
+</section>
+<section class="middle">
+  <div class="catagories">
+    <% Anime.category.forEach(element => { %>
+    <a style="padding-left: 1rem;" href="/Catagory/<%=element%>"><%=element%></a>
+    <% }) %>
+  </div>
+
+</section>
+
+<section class="Content" id="ep">
+  <% Anime.EP.forEach(ep => { %>
+
+  <div class="MovieItem">
+
+    <a title=<%=ep.title%> href="/epPgae/<%= ep.title %>/<%=ep.epNumber%>" />
+    <div class="numr">
+      <div> <%=ep.epNumber%> </div>
+      <div></div>
+    </div>
+    <img src=<%=ep.imgLink %> alt="" class="BGMovieItem">
+
+    <div class="content">
+      <div class="text">
+        <%=ep.discribtion %>
+      </div>
+    </div>
+    </a>
+  </div>
+  <% }) %>
+</section>
+
+<section class="mid-nav">
+  <h1>Comments</h1>
+</section>
+
+<section class="comments">
+
+
+
+  <% if (logged) { %>
+
+
+
+
+
+  <div class="container" style="text-align: right;">
+
+    <div class="row">
+      <% Anime.comments.forEach(comment => { %>
+      <div class="card col-sm-4">
+        <div class="card-body">
+          <h5 class="card-title" id=""><%=  comment.username%></h5>
+          <h6 class="card-subtitle mb-2 text-muted" id=""><%= comment.createdAt %> </h6>
+          <p class="card-text" id=""><%=comment.text  %></p>
+        </div>
+      </div>
+
+      <% }) %>
+
+      <div id="next"> 
+
+      </div>
+    </div>
+    <div class="row"  >
+      <div class="card col-sm-12">
+        <div class="card-body">
+          <h5 class="card-title">اكتب تعليقك</h5>
+          <form class="my-2 my-lg-0 nav-item" style="margin: 0; padding-bottom: 20px;" id="commentForm">
+            <button type="submit" data-micron="bounce" style="margin-right: 15px; background-color: red; color: wheat;">
+              <i class="far fa-comment" data-micron="bounce"></i> </button>
+            <input id="commentBar" type="text" name="commentBar" class="form-control mr-sm-2" placeholder="ادخل تعليقك"
+              style="text-align-last: right; width: 75%; float: right;">
+            <input type="hidden" name="animeID" id="animeID" value=<%=Anime._id %>>
+            <input type="hidden" name="createdate" id="todayDate" />
+            <input type="hidden" name="" id="name" value="<%= user %> ">
+            <input type="hidden" id="userID" value=<%= userID %>>
+            <input type="hidden" id="favorate" value=<%= favorate %>>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <% }  %>
+
+
+  <% if (!logged) { %>
+  <div class="no-comments">
+    <p> سجل الدخول لترى التعليقات <a href="/signup">هنا</a></p>
+  </div>
+
+  <% }  %>
+
+
+
+</section>
+
+
+
+
+<script type="text/javascript">
+  function getDate() {
+
+    let dateObj = new Date();
+    let month = dateObj.getMonth() + 1;
+    let day = String(dateObj.getDate()).padStart(2, '0');
+    let year = dateObj.getFullYear();
+    let output = day + '/' + month + '/' + year;
+
+
+    document.getElementById("todayDate").value = output;
+  }
+
+  //call getDate() when loading the page
+  getDate();
+</script>
+
+<%- include('footer'); -%>
+
+<script>
+  $(document).ready(function () {
+    
+   <% if (logged) {%>
+      
+      function favaGet() {
+        $.ajax({
+          type: "GET",
+          url: "/fava",
+          data: {
+            id: $("#userID").val(),
+            fava: $("#animeID").val()
+          },
+          success: function (result) {
+            console.log(result);
+            if (result) {
+              $("#fava").css("background-color", "yellow")
+            } else {
+              $("#fava").css("background-color", "red")
+            }
+          },
+          error: function (e) {
+
+            console.log("ERROR: ", e);
+          }
+        });
+      }
+
+
+      favaGet(); 
+      
+      <%} %>
+
+
+    $("#fava").click(function (event) {
+      // Prevent the form from submitting via the browser.
+      event.preventDefault();
+      favaPost();
+      favaGet();
+      setTimeout(favaGet(), 3000);
+    });
+
+
+    function favaPost() {
+      var data = {
+        user: $("#userID").val(),
+        anime: $("#animeID").val()
+      }
+
+      $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url: "/favorate",
+        data: JSON.stringify(data),
+        dataType: 'json',
+        success: function (favorate) {
+          alert("success");
+        },
+        error: function (e) {
+
+        }
+      });
+      $("#fava").css("background-color", "yellow")
+    }
+
+
+    // SUBMIT FORM
+    $("#commentForm").submit(function (event) {
+      // Prevent the form from submitting via the browser.
+      event.preventDefault();
+      ajaxPost();
+      ajaxGet();
+    });
+
+
+    function ajaxPost() {
+
+      // PREPARE FORM DATA
+      var formData = {
+        text: $("#commentBar").val(),
+        createdAt: $("#todayDate").val(),
+        username: $("#name").val(),
+        animeID: $("#animeID").val()
+      }
+
+      // DO POST
+      $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url: "/comment",
+        data: JSON.stringify(formData),
+        dataType: 'json',
+        success: function (comment) {
+          alert(JSON.stringify(comment));
+        },
+        error: function (e) {
+          alert("Error!")
+          console.log("ERROR: ", e);
+        }
+      });
+      $("#commentBar").val("")
+    }
+
+    function ajaxGet() {
+      $.ajax({
+        type: "GET",
+        url: "/comment",
+        data: {
+          id: "<%=Anime._id%>"
+        },
+        success: function (result) {
+          var comment = JSON.parse(result);
+          var t1 = '<div class="card col-sm-4"> ';
+          var t2 = ' <div class="card-body">';
+          var t3 = $('<h5 class="card-title" id="user1"></h5>').text(comment.username);
+          var t4 = $('<h6 class="card-subtitle mb-2 text-muted" id="craete1"></h6>').text(comment.createdAt);
+          var t5 = $('<p class="card-text" id="text1"></p>').text(comment.text);
+          var t6 = '</div>    </div>';
+          $("#next").before('<div class="card col-sm-4">'+' <div class="card-body">'
+            +'<h5 class="card-title" id="user1">'+ comment.username+'</h5>' +
+            '<h6 class="card-subtitle mb-2 text-muted" id="craete1">'+ comment.createdAt+'</h6>'+'<p class="card-text" id="text1"></p>'+
+            comment.text+'</p>');
+
+
+        },
+        error: function (e) {
+          $("#getResultDiv").html("<strong>Error</strong>");
+          console.log("ERROR: ", e);
+        }
+      });
+    }
+  });
+</script>

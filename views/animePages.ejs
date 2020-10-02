@@ -1,0 +1,29 @@
+<% if (logged) { %>
+    <%- include('logedheader'); -%>
+    <% } %>
+    
+    <% if (!logged) { %>
+    <%- include('header'); -%>
+    <% } %>
+<section class="Content" id="ani">
+    <% Animes.forEach(anime => { %>
+
+    <div class="MovieItem">
+   
+<a title=<%=anime.title%>  href="/animePage/<%=anime.title%>" > 
+                    <div class="numr">
+                    <div> <%=anime.epNumbers%> </div>
+                    <div></div>
+                </div>
+                     <img src=<%=anime.CoverImg %>  alt="" class="BGMovieItem">
+               
+                <div class="content">
+                      <div class="text">
+                  <%=anime.title %> 
+                </div>
+            </div>
+          </a>
+    </div>
+    <% }) %>
+</section>
+<%- include('footer'); -%>

@@ -641,7 +641,7 @@ app.get("/logout", function (req, res) {
 
 
 app.get('/signup', (req, res) => {
-    res.render("signup",{wrong:false});
+    res.render("signUp",{wrong:false});
 });
 
 app.post('/signup', (req, res) => {

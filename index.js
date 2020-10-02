@@ -11,7 +11,7 @@ const app = express();
 
 const Jikan = require('jikan-node');
 const mal = new Jikan();
-const jwt = require('jsonwebtoken');
+
 
 app.use(bodyParser.urlencoded({
     extended: true

@@ -45,17 +45,20 @@
               <a class="nav-link button"  data-micron="pop"href="/logout">Sign out</a>
             </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0 nav-item" action="/search" method="POST">
-            <input type="text" id="search-query"    style="background-color: inherit;color: red; " class="form-control mr-sm-2" placeholder="Enter Name" name="fltrname">
-            <button class="btn my-2 my-sm-0  btn1" data-micron="groove"  type="submit"> <i class="fas fa-search"></i> </button>
-          </form>
+         
           <form class="form-inline my-2 my-lg-0 nav-item" action="/advincedsearch" method="POST">
             <input class="form-control mr-sm-2" name="adv" type="search"  style="background-color: inherit;color: red; " placeholder="Advanced Search" aria-label="Search">
             <button  class="btn my-2 my-sm-0  btn1"  data-micron="groove"  type="submit"> <i class="fas fa-search"></i> </button>
           </form>
-    
         </div>
       </nav>
+      <form class="form-inline my-2 mb-5  nav-item d-flex justify-content-center " method="POST" action="/search">
+        <input type="text" id="search-query" class="form-control mr-sm-2 d-flex justify-content-center" style="background-color: inherit; color: red; width: 70%;border-top: none; border-left: none; border-right: none; border-bottom-color: red;"
+          placeholder="Enter Name" name="fltrname">
+        <button class="btn my-2 my-sm-0  btn1" data-micron="groove" type="submit"> <i class="fas fa-search"></i>
+        </button>
+    
+      </form>
 <% } %>
 <% if (!logged) { %>
     <!DOCTYPE html>
@@ -105,15 +108,15 @@
               <a class="nav-link" data-micron="pop" href="/signup">Sign up</a>
             </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0 nav-item" method="POST" action="/search">
-            <input type="text" id="search-query" class="form-control mr-sm-2" style="background-color: inherit; color: red; "
-              placeholder="Enter Name" name="fltrname">
-            <button class="btn my-2 my-sm-0  btn1" data-micron="groove" type="submit"> <i class="fas fa-search"></i>
-            </button>
-    
-          </form>
         </div>
       </nav>
+      <form class="form-inline my-2 mb-5  nav-item d-flex justify-content-center " method="POST" action="/search">
+        <input type="text" id="search-query" class="form-control mr-sm-2 d-flex justify-content-center" style="background-color: inherit; color: red; width: 70%;border-top: none; border-left: none; border-right: none; border-bottom-color: red;"
+          placeholder="Enter Name" name="fltrname">
+        <button class="btn my-2 my-sm-0  btn1" data-micron="groove" type="submit"> <i class="fas fa-search"></i>
+        </button>
+    
+      </form>
 <% } %>
 <section class="epPage">
     <div class="container">

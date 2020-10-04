@@ -1,56 +1,37 @@
 <%- include('header'); -%>
 
-<div class="container mt-5">
-  <h1>Welcome to M&H anime please sign up to get the full access from our website</h1>
-
-  <div class="row">
-    <div class="col-sm-8">
-      <div class="card">
-        <div class="card-body">
-
-          <!-- Makes POST request to /login route -->
-          <form action="/signup" method="POST">
-            <div class="form-group">
-              <label for="name">User name</label>
-              <input type="text" class="form-control" name="name">
-            </div>
-
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" class="form-control" name="username">
-            </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" class="form-control" name="password">
-            </div>
-            <button type="submit" class="btn btn-dark">Login</button>
-          </form>
-          <% if (wrong) { %>
-            <div class="alert alert-danger animate" role="alert">
-              The email is exist try to <a href="/login"> log in</a> or use other email
-            </div>
-          <% } %>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-4">
-      <div class="card" style="margin-top: 2rem;">
-        <div class="card-body" style="width: 70%;">
-          <a class="btn btn-block btn-social btn-google" href="/auth/google" role="button">
-            <i class="fab fa-google"></i>
-            Sign Up with Google
-          </a>
-        </div>
-        <div class="card-body" style="width: 70%;">
-            <a class="btn btn-block btn-social btn-facebook" href="/auth/facebook" role="button">
-              <i class="fab fa-facebook"></i>
-              Sign Up with Facebook
-            </a>
-          </div>
-      </div>
-    </div>
-
+<div class="signin-form">
+  <form action="/signup" method="post">
+  <h2>Welcome</h2>
+      <p class="hint-text">Sign up with your social media account</p>
+  <div class="social-btn text-center">
+    <a href="/auth/facebook" class="btn btn-primary btn-lg" title="Facebook"><i class="fa fa-facebook"></i></a>
+    <a href="/auth/google" class="btn btn-danger btn-lg" title="Google"><i class="fa fa-google"></i></a>
   </div>
+  <div class="or-seperator"><b>or</b></div>
+  <div class="form-group">
+    <input type="text" class="form-control input-lg" name="name" placeholder="your name" required="required">
+  </div>
+      <div class="form-group">
+        <input type="email" class="form-control input-lg" name="username" placeholder="your Email" required="required">
+      </div>
+  <div class="form-group">
+          <input type="password" class="form-control input-lg" name="password" placeholder="Password" required="required">
+      </div>  
+      <div class="form-group">
+          <button type="submit" class="btn btn-success btn-lg btn-block signin-btn">Join us</button>
+      </div>
+      <% if (wrong) { %>
+        <div class="alert alert-danger animate" role="alert">
+          The email is exist try to <a href="/login"> log in</a> or use other email
+        </div>
+      <% } %>
+      <div class="text-center small">have an account? <a href="/login">Sign in</a></div>
+  </form>
+  
+ 
 </div>
+
+
+
 <%- include('footer'); -%>

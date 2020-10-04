@@ -92,7 +92,9 @@ const EP = mongoose.model(
       imgLink : String,
       discribtion:String,
       server1:String,
-      server2:String
+      server2:String,
+      link1:String,
+      link2:String
     },{ strict: false })
   );    
 UserSchema.plugin(passportLocalMongoose);
@@ -168,9 +170,9 @@ const createAnimeName = function (animeName) {
     });
 };
 
-const createEP = function (AnimeNameId, EP) {
+const createEP = function (AnimeNameId, eP) {
 
-    return EP.create(EP).then(docEP => {
+    return EP.create(eP).then(docEP => {
         
         return AnimeName.findByIdAndUpdate(
             AnimeNameId, {
@@ -517,7 +519,9 @@ app.post('/saveEP', (req, res) => {
                 imgLink : found.CoverImg,
                 discribtion:req.body.discribtion,
                 server1:req.body.server1,
-                server2:req.body.server2
+                server2:req.body.server2,
+                link1:req.body.link1,
+                link2:req.body.link2
             };
 
             createEP(found._id,newEp);

@@ -5,7 +5,7 @@
       <head>
           <meta charset="utf-8">
           <meta name="description" content="Free anime site">
-          <meta name="keywords" content="anime, انمي, مشاهدة انميات , animes2020 ,  animes ,<%= Anime.title %> , <%= Anime.discription %>,تش ام انمي ,انمي قاتل الشياطين">
+          <meta name="keywords" content="anime, انمي, مشاهدة انميات , animes2020 ,  animes ,<%= Anime.title %> ,تش ام انمي ,انمي قاتل الشياطين">
           <meta name="author" content="Hamza Nael">
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <title>MH anime</title>
@@ -45,17 +45,20 @@
             <a class="nav-link button"  data-micron="pop"href="/logout">Sign out</a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0 nav-item" action="/search" method="POST">
-          <input type="text" id="search-query"    style="background-color: inherit;color: red; " class="form-control mr-sm-2" placeholder="Enter Name" name="fltrname">
-          <button class="btn my-2 my-sm-0  btn1" data-micron="groove"  type="submit"> <i class="fas fa-search"></i> </button>
-        </form>
         <form class="form-inline my-2 my-lg-0 nav-item" action="/advincedsearch" method="POST">
           <input class="form-control mr-sm-2" name="adv" type="search"  style="background-color: inherit;color: red; " placeholder="Advanced Search" aria-label="Search">
           <button  class="btn my-2 my-sm-0  btn1"  data-micron="groove"  type="submit"> <i class="fas fa-search"></i> </button>
         </form>
   
       </div>
-    </nav>>
+    </nav>
+    <form class="form-inline my-2 mb-5  nav-item d-flex justify-content-center " method="POST" action="/search">
+      <input type="text" id="search-query" class="form-control mr-sm-2 d-flex justify-content-center" style="background-color: inherit; color: red; width: 70%;border-top: none; border-left: none; border-right: none; border-bottom-color: red;"
+        placeholder="Enter Name" name="fltrname">
+      <button class="btn my-2 my-sm-0  btn1" data-micron="groove" type="submit"> <i class="fas fa-search"></i>
+      </button>
+  
+    </form>
 <% } %>
 
 <% if (!logged) { %>
@@ -106,15 +109,15 @@
             <a class="nav-link" data-micron="pop" href="/signup">Sign up</a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0 nav-item" method="POST" action="/search">
-          <input type="text" id="search-query" class="form-control mr-sm-2" style="background-color: inherit; color: red; "
-            placeholder="Enter Name" name="fltrname">
-          <button class="btn my-2 my-sm-0  btn1" data-micron="groove" type="submit"> <i class="fas fa-search"></i>
-          </button>
-  
-        </form>
       </div>
     </nav>
+    <form class="form-inline my-2 mb-5  nav-item d-flex justify-content-center " method="POST" action="/search">
+      <input type="text" id="search-query" class="form-control mr-sm-2 d-flex justify-content-center" style="background-color: inherit; color: red; width: 70%;border-top: none; border-left: none; border-right: none; border-bottom-color: red;"
+        placeholder="Enter Name" name="fltrname">
+      <button class="btn my-2 my-sm-0  btn1" data-micron="groove" type="submit"> <i class="fas fa-search"></i>
+      </button>
+  
+    </form>
 <% } %>
 
 <section class="anime-page container">
@@ -126,16 +129,11 @@
     <button type="button" class="btn  btn-lg fava " id="fava"> <i class="fas fa-heart"></i></button></div>
   <% } %>
 </div>
-<div class="col">
-
-
   <div class="textedit">
     <h2><%=Anime.title%> </h2>
     <p>
-      <%= Anime.discription %>
-      
+      <%= Anime.discription %> 
     </p>
-  </div>
   </div>
 </section>
 <section class="epNumber" style="color: red;">
@@ -231,12 +229,11 @@
     <div class="row"  >
       <div class="card col-sm-12">
         <div class="card-body">
-          <h5 class="card-title">اكتب تعليقك</h5>
           <form class="my-2 my-lg-0 nav-item" style="margin: 0; padding-bottom: 20px;" id="commentForm">
-            <button type="submit" data-micron="bounce" style="margin-right: 15px; background-color: red; color: wheat;">
+            <button type="submit" data-micron="bounce" class="btn" style="margin-right: 15px; background-color: red; color: wheat;">
               <i class="far fa-comment" data-micron="bounce"></i> </button>
             <input id="commentBar" type="text" name="commentBar" class="form-control mr-sm-2" placeholder="ادخل تعليقك"
-              style="text-align-last: right; width: 75%; float: right;" required>
+              style="text-align-last: right; width: 50%; float: right;" required>
             <input type="hidden" name="animeID" id="animeID" value=<%=Anime._id %>>
             <input type="hidden" name="createdate" id="todayDate" />
             <input type="hidden" name="" id="name" value="<%= user %> ">

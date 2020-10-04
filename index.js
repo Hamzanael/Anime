@@ -119,7 +119,7 @@ passport.deserializeUser(function (id, done) {
 passport.use(new GoogleStrategy({
         clientID: "648876845563-6uicnalrmoojavmlhdvepdd5u5fu34k0.apps.googleusercontent.com",
         clientSecret: "IwbiiLH3VrvIwWVUDD5TIDHm",
-        callbackURL: "http://localhost:3000/auth/google/home",
+        callbackURL: "https://mhanime.herokuapp.com/auth/google/home",
         userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
     },
     function (accessToken, refreshToken, profile, cb) {
@@ -138,7 +138,8 @@ passport.use(new GoogleStrategy({
 passport.use(new FacebookStrategy({
     clientID: "674679943157162",
     clientSecret: "daa34a5375ba76c106cb4f27b01e2b17",
-    callbackURL: "https://mhanime.herokuapp.com/auth/facebook/home"
+    callbackURL: "https://mhanime.herokuapp.com/auth/facebook/home",
+    userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
   },
   function(accessToken, refreshToken, profile, cb) {
     User.findOrCreate({ facebookId: profile.id,  name: profile.displayName,username: profile.id, }, function (err, user) {

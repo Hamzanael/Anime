@@ -564,8 +564,6 @@ footer{
 .fava{
     background-color: red;
     position: absolute;
-    left: 80%;
-    top: auto;
     bottom: auto;
     color: white;
 }

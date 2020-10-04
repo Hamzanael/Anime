@@ -431,7 +431,12 @@ const newcomment = new Comment({
     createdAt:comment.createdAt
 });
  createComment(comment.animeID,newcomment);
- 
+ var result = JSON.stringify(newcomment);
+ res.send(result, {
+    'Content-Type': 'application/json'
+ }, 200);
+
+
 
 
 
@@ -447,8 +452,10 @@ app.get('/comment', (req, res) => {
              }, 404);
         }
         else{
-           const lasstComment= found.comments[found.comments.length-1];
-            var result = JSON.stringify(lasstComment);
+            const x =found.comments.pop();
+         //  const lasstComment= found.comments[x-1];
+           console.log(x);
+            var result = JSON.stringify(x);
             res.send(result, {
                'Content-Type': 'application/json'
             }, 200);

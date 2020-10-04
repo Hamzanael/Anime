@@ -333,6 +333,10 @@ app.route('/userhome')
     });
 
 
+    app.get('/login.xml', (req, res) => {
+        res.render("login" , {wrong:false});
+    });
+    
 app.get('/login', (req, res) => {
     res.render("login" , {wrong:false});
 });
@@ -673,6 +677,10 @@ app.get("/logout", function (req, res) {
     res.redirect("/");
 });
 
+app.get('/signup.xml', (req, res) => {
+    res.render("signUp",{wrong:false});
+});
+
 
 app.get('/signup', (req, res) => {
     res.render("signUp",{wrong:false});
@@ -694,6 +702,19 @@ app.post('/signup', (req, res) => {
 
 
 });
+
+app.get('/animePage.xml', (req, res) => {
+    AnimeName.find({},(err,found)=>{
+        if(req.isAuthenticated()){
+            res.render("animePages",{Animes:found,logged:true});
+        }else{
+            res.render("animePages",{Animes:found,logged:false});
+        }
+       
+    });
+   
+});
+
 
 app.get('/animePage', (req, res) => {
     AnimeName.find({},(err,found)=>{

@@ -7,6 +7,7 @@ const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 const findOrCreate = require('mongoose-findorcreate');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const FacebookStrategy = require("passport-facebook").Strategy;
 const app = express();
 
 const Jikan = require('jikan-node');
@@ -30,7 +31,7 @@ app.use(passport.session());
 
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb+srv://admin-hamza:nh19991128@cluster0.kj5ro.mongodb.net/', {
+mongoose.connect('mongodb://hamza:123@34.222.182.20/cool_db', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -58,6 +59,9 @@ const AnimeName = mongoose.model(
       discription : String,
       CoverImg:String,
       epNumbers:Number,
+      trailer:String,
+      time:String,
+      date:String,
       EP: [],
       comments: [],
       category: []
@@ -131,21 +135,32 @@ passport.use(new GoogleStrategy({
     }
 ));
 
+passport.use(new FacebookStrategy({
+    clientID: "674679943157162",
+    clientSecret: "daa34a5375ba76c106cb4f27b01e2b17",
+    callbackURL: "https://mhanime.herokuapp.com/auth/facebook/home"
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    User.findOrCreate({ facebookId: profile.id,  name: profile.displayName,username: profile.id, }, function (err, user) {
+      return cb(err, user);
+    });
+  }
+));
 
 
 
 // Data Base Functions
 
-const createUser = function (User) {
-    return User.create(User).then(docUser => {
+const createUser = function (user) {
+    return User.create(user).then(docUser => {
       
         return docUser;
     });
 };
 
 
-const createAnimeName = function (AnimeName) {
-    return AnimeName.create(AnimeName).then(docAnimeName => {
+const createAnimeName = function (animeName) {
+    return AnimeName.create(animeName).then(docAnimeName => {
        
         return docAnimeName;
     });
@@ -364,11 +379,23 @@ app.get('/auth/google/home',
         res.redirect("/");
 
 
-
-
-
-
     });
+
+    app.get('/auth/facebook',
+  passport.authenticate('facebook'));
+
+app.get('/auth/facebook/home',
+passport.authenticate('google', {
+    failureRedirect: '/login'
+}),
+function (req, res) {
+    // Successful authentication, redirect home.
+
+
+    res.redirect("/");
+
+
+});
 
 
 
@@ -442,7 +469,10 @@ app.post('/saveAnime', (req, res) => {
         discription : req.body.discription,
         CoverImg:req.body.CoverImg,
         epNumbers:req.body.epNumbers,
-        category:req.body.catagory
+        category:req.body.catagory,
+        trailer:req.body.trailer,
+      time:req.body.time,
+      date:req.body.date
     } ;	
     
     createAnimeName(newAnime);

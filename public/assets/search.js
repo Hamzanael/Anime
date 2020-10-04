@@ -33,7 +33,7 @@ $(function on () {
          // Prevent value from being put in the input:
          this.value = ui.item.label;
          // Set the id to the next input hidden field
-         $(this).next("input").val(ui.item.value);
+         $(this).next("input").val(ui.item.value).css("width","30px");
          // Prevent other event from not being execute            
          event.preventDefault();
       }

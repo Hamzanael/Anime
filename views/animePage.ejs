@@ -6,23 +6,53 @@
 <%- include('header'); -%>
 <% } %>
 
-<section class="anime-page">
+<section class="anime-page container">
 
-  <div class="top-page">
+  <div class="top-page  ">
+    <div class=" float-lg-right"> 
     <img src=<%= Anime.CoverImg %> alt="Anime Photo">
     <% if (logged) { %>
     <button type="button" class="btn  btn-lg fava " id="fava"> <i class="fas fa-heart"></i></button></div>
   <% } %>
+</div>
+<div class="col">
+
 
   <div class="textedit">
-    <h1><%=Anime.title%> </h1>
+    <h2><%=Anime.title%> </h2>
     <p>
       <%= Anime.discription %>
+      
     </p>
-
+  </div>
   </div>
 </section>
-<section class="fava">
+<section class="epNumber" style="color: red;">
+  <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    معلومات اضافيه
+  </a>
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body" style="background-color: inherit; color: red; border: none;">
+      <table class="table table-borderless"  >
+        <tbody>
+          <tr>
+        
+            <td>العرض الدعائي</td>
+            <td>مده العرض</td>
+            <td>تاريخ الانتاج</td>
+          </tr>
+          <tr>
+          
+            <td><a href="<%= Anime.trailer %> "> هنا</a></td>
+            <td><%= Anime.time %></td>
+            <td><%= Anime.date %></td>
+           
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
 </section>
 <section class="middle">
   <div class="catagories">

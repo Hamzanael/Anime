@@ -7,7 +7,7 @@ const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 const findOrCreate = require('mongoose-findorcreate');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const FacebookStrategy = require("passport-facebook").Strategy;
+const FacebookStrategy=require("passport-facebook").Strategy;
 const app = express();
 
 const Jikan = require('jikan-node');
@@ -116,6 +116,18 @@ passport.deserializeUser(function (id, done) {
     });
 });
 
+passport.use(new FacebookStrategy({
+    clientID: "674679943157162",
+    clientSecret: "daa34a5375ba76c106cb4f27b01e2b17",
+    callbackURL: "https://mhanime.herokuapp.com/auth/facebook/home"
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    User.findOrCreate({ facebookId: profile.id,  name: profile.displayName,username: profile.id, }, function (err, user) {
+      return cb(err, user);
+    });
+  }
+));
+
 passport.use(new GoogleStrategy({
         clientID: "648876845563-6uicnalrmoojavmlhdvepdd5u5fu34k0.apps.googleusercontent.com",
         clientSecret: "IwbiiLH3VrvIwWVUDD5TIDHm",
@@ -135,18 +147,7 @@ passport.use(new GoogleStrategy({
     }
 ));
 
-passport.use(new FacebookStrategy({
-    clientID: "674679943157162",
-    clientSecret: "daa34a5375ba76c106cb4f27b01e2b17",
-    callbackURL: "https://mhanime.herokuapp.com/auth/facebook/home",
-    userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
-  },
-  function(accessToken, refreshToken, profile, cb) {
-    User.findOrCreate({ facebookId: profile.id,  name: profile.displayName,username: profile.id, }, function (err, user) {
-      return cb(err, user);
-    });
-  }
-));
+
 
 
 
@@ -382,21 +383,16 @@ app.get('/auth/google/home',
 
     });
 
+
     app.get('/auth/facebook',
   passport.authenticate('facebook'));
 
 app.get('/auth/facebook/home',
-passport.authenticate('google', {
-    failureRedirect: '/login'
-}),
-function (req, res) {
+  passport.authenticate('facebook', { failureRedirect: '/login' }),
+  function(req, res) {
     // Successful authentication, redirect home.
-
-
-    res.redirect("/");
-
-
-});
+    res.redirect('/');
+  });
 
 
 

@@ -132,24 +132,25 @@
             <div class="col-lg-6" style="text-align: center;">
                 <ul class="pagination justify-content-center">
                     <li class="page-item" style="margin-right: 1rem;">
-                        <a class="page-link" style="background-color: red;color: white;border-radius: 50px;border: none;" href=<%= ep.server1 %> 
+                        <a class="page-link" style="background-color: red;color: white;border-radius: 50px;border: none;" href="//<%=ep.server1 %>"
                             onclick="return loadIframe('ifrm', this.href);"> <i class="fab fa-maxcdn" style="padding-right: 1rem;"></i> Server 1</a>
+                           
                     </li>
                     <li class="page-item" style="margin-left: 1rem;">
-                        <a class="page-link" style="color: red; background-color: white;border-radius: 50px;border: none;" href=<%= ep.server2 %>
+                        <a class="page-link" style="color: red; background-color: white;border-radius: 50px;border: none;" href="//<%=ep.server2 %>"
                             onclick="return loadIframe('ifrm', this.href);"> <i style="padding-right: 1rem;"
                             class="fab fa-google-drive"></i> Server 2</a>
                     </li>
                 </ul>
                 <div class="iframe">
-                    <iframe name="ifrm" id="ifrm" src=<%=ep.server1 %>
+                    <iframe name="ifrm" id="ifrm" src="//<%=ep.server1 %>"
                         style="width:100%;height: 300px;" frameborder="0">
                         Your browser doesn't support iframes.
                     </iframe>
                 </div>
 
                 
-                    <a class="btn btn-dark " href=" href=<%= ep.link1 %>"  role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                    <a class="btn btn-dark " href="//<%=ep.link1 %>"  role="button" id="dropdownMenuLink" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false" style="padding:1rem;margin-top: 1rem;margin-bottom: 1rem;font-size: 1.5rem;">
                         <i class="fas fa-download"></i> تحميل الحلقه
                     </a>
@@ -195,6 +196,8 @@
     function loadIframe(iframeName, url) {
         var $iframe = $('#' + iframeName);
         if ($iframe.length) {
+  
+    
             $iframe.attr('src', url);
             return false;
         }

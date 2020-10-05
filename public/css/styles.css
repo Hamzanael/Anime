@@ -326,8 +326,65 @@ footer {
     margin-right: 30px;
     text-align: center;
     overflow: auto;
-    width: fit-content;
+    width: 60%;
     float: right;
+    height: 420px;
+}
+
+.textedit::-webkit-scrollbar {
+    width: 20px;
+    height: 5px;
+}
+
+/* Track */
+.textedit::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(41, 2, 2);
+    border-radius: 10px;
+}
+
+
+
+
+/* Handle on hover */
+.textedit::-webkit-scrollbar-thumb {
+    background: #404040;
+}
+
+.textedit::-webkit-scrollbar-thumb:hover {
+    background: #505050;
+}
+
+.textedit::-webkit-scrollbar-thumb:active {
+    background: #404040;
+}
+
+/* Buttons */
+.textedit::-webkit-scrollbar-button {
+    border-style: solid;
+    height: 16px;
+    width: 16px;
+}
+
+
+/* Up */
+.textedit::-webkit-scrollbar-button:vertical:decrement {
+    border-width: 0 7px 14px 7px;
+    border-color: transparent transparent #404040 transparent;
+}
+
+.textedit::-webkit-scrollbar-button:vertical:decrement:hover {
+    border-color: transparent transparent #505050 transparent;
+}
+
+
+/* Down */
+.textedit::-webkit-scrollbar-button:vertical:increment {
+    border-width: 14px 7px 0 7px;
+    border-color: #404040 transparent transparent transparent;
+}
+
+.textedit::-webkit-scrollbar-button:vertical:increment:hover {
+    border-color: #505050 transparent transparent transparent;
 }
 
 .catagories {
@@ -571,6 +628,9 @@ footer {
     color: white;
 
 }
+.bootstrap-select .dropdown-menu li {
+    padding: 20px;
+}
 
 /* login*/
 .form-control {
@@ -746,6 +806,13 @@ footer {
     .table{
         width: 100%;
     }
+    .textedit{
+        width: 50%;
+    }
+    .top-page img{
+        width: 40%;
+        float: right;
+    }
 
 }
 
@@ -824,6 +891,8 @@ footer {
         clear: both;
         margin-right: auto;
     margin-left: auto;
+    width: fit-content;
+
     }
 }
 

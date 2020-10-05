@@ -533,6 +533,17 @@ app.post('/saveEP', (req, res) => {
 
 });
 
+/* app.post('/DeleteAnime', (req, res) => {
+    var int = parseInt(req.body.ep);  
+    AnimeName.findOneAndUpdate({title:req.body.title},{'$pull': {"EP.$.epNumbe":{epNumbe:int}}},{arrayFilters:[{"EP.epNumber":int}] },(err,doc)=>{
+       console.log(err);
+        console.log(doc);
+        console.log(req.body.ep);
+                   
+    });
+    
+}); */
+
 app.post('/editEP', (req, res) => {  
     const s1= req.body.server1;
     const s2= req.body.server2;
@@ -803,7 +814,7 @@ app.get('/editAnimefortheadminsOnly', (req, res) => {
 res.render("editAnime");	
 });
 app.get('/deleteAnimefortheadminsOnly', (req, res) => {
-res.render("/deletAnime");	
+res.render("deletAnime");	
 });
 
 app.get('/sitemap.xml', (req, res) => {

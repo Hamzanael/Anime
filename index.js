@@ -738,17 +738,16 @@ const num =parseInt( req.params.epNumber);
 
 AnimeName.findOne(
     { title:tit} ,(err,found)=>{
-        if (found.EP[num-1]) {
+     
             
         
         if(req.isAuthenticated()){
         res.render("epPage",{logged:true, ep:found.EP[num-1],Anime:found}); }
         else{
             res.render("epPage",{logged:false, ep:found.EP[num-1],Anime:found});
-        }}
-        else{
-            res.redirect("/");
         }
+        
+        
     }
     ); 
 

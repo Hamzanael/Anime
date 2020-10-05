@@ -743,6 +743,9 @@ footer {
         
 
     }
+    .table{
+        width: 100%;
+    }
 
 }
 

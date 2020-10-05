@@ -1,8 +1,8 @@
 /* the nav bar style */
 
 body {
-    background: rgb(37, 5, 51);
-    background: linear-gradient(90deg, rgba(37, 5, 51, 1) 25%, rgba(98, 9, 9, 1) 49%, rgba(37, 5, 51, 1) 71%);
+    background: rgb(31,4,43);
+    background: linear-gradient(90deg, rgba(31,4,43,1) 25%, rgba(98,9,9,1) 49%, rgba(31,4,43,1) 71%);
     margin: 0;
     padding: 0;
     font-family: 'Sriracha', cursive;
@@ -553,6 +553,9 @@ footer {
 
 .table {
     color: white;
+    text-align: center;
+    margin: 0 auto;
+    width: 50%;
 }
 
 .dropdown-item:focus,
@@ -703,14 +706,23 @@ footer {
 }
 
 /* mobile settings */
+@media (max-width: 1199.98px) {
+   
+}
 
-@media (max-width: 767.98px) {
 
-    /* nav bar in mobile */
-    .btn1 {}
-
+@media (max-width: 991.98px) {
+    .ite{
+        text-align: center;
+    }
+    .btn2{
+        text-align: center;
+        margin: 0 auto;
+        border-radius: 50px;
+        outline: none !important;
+    }
     .form-control {
-
+        width: 70%;
         margin-right: 2%;
     }
 
@@ -720,9 +732,51 @@ footer {
     }
 
     .navbar-brand {
+        position: unset;
+       text-align: center;
+       margin: 0 auto;
+        width: 100%;
+        
+    }
+    .carousel-item img {
+        width: 40%;
+        
+
+    }
+
+}
+
+@media (max-width: 767.98px) {
+
+    /* nav bar in mobile */
+    .btn1 {
+      
+    }
+    .ite{
+        text-align: center;
+    }
+    .btn2{
+        text-align: center;
+        margin: 0 auto;
+        border-radius: 50px;
+        outline: none !important;
+    }
+    .form-control {
+        width: 70%;
+        margin-right: 2%;
+    }
+
+    .navbar-nav {
         position: relative;
-        left: 15px;
-        font-size: 2rem;
+        left: auto;
+    }
+
+    .navbar-brand {
+        position: unset;
+       text-align: center;
+       margin: 0 auto;
+        width: 100%;
+        
     }
 
     /*.nav-item{
@@ -737,7 +791,8 @@ footer {
     }
 
     .carousel-item img {
-        width: fit-content;
+        width: 40%;
+        
 
     }
 
@@ -782,18 +837,14 @@ footer {
 }
 
 @media (max-width: 575.98px) {
-    
+    .form-inline .form-control {
+        width: 70%;
+        margin-right: 2%;
+    }
    
 }
 
 
 
-// Medium devices (tablets, less than 992px)
-@media (max-width: 991.98px) {
-    
-}
 
-// Large devices (desktops, less than 1200px)
-@media (max-width: 1199.98px) {
-   
-}
+

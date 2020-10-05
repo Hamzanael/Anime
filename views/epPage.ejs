@@ -5,12 +5,15 @@
         <head>
             <meta charset="utf-8">
             <meta name="description" content="Free anime site">
-            <meta name="keywords" content="anime, انمي, مشاهدة انميات , animes2020 ,  animes ,<%=ep.discribtion %>,تش ام انمي ,انمي قاتل الشياطين">
+            <meta name="keywords" content="anime, انمي, مشاهدة انميات , animes2020 ,  animes ,تش ام انمي ,انمي قاتل الشياطين">
             <meta name="author" content="Hamza Nael">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <title>MH anime</title>
             <meta name="google-site-verification" content="AjnD-UK6ElH8-dDvHMPeK8vgd58j0FWpE-Al_YgYx7w" />
             <link rel="icon" type="image/png" href="/imeges/m.png" sizes="48×48"/>
+            <link rel="alternate" href="https://mhanime.herokuapp.com/" hreflang="ar" />
+<link rel="alternate" href="https://mhanime.herokuapp.com/" hreflang="en" />
+
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
               integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
             <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Great+Vibes&family=Sriracha&display=swap"
@@ -29,14 +32,14 @@
     <body>
     
       <nav class="navbar navbar-expand-lg  nav1">
-    
+
         <a class="navbar-brand" href="/" >M&H</a>
-        <button data-micron="pop" class="navbar-toggler btn1" type="button" data-toggle="collapse" data-target="#NavCollabs"
+        <button data-micron="pop" class="navbar-toggler btn1 btn2" type="button" data-toggle="collapse" data-target="#NavCollabs"
              aria-expanded="false" aria-label="Toggle navigation">
           <span  data-micron="pop" class="navbar-toggler-icon"><i data-micron="pop" class="fas fa-angle-double-down"></i></span>
         </button>
     
-        <div class="collapse navbar-collapse" id="NavCollabs">
+        <div class="collapse navbar-collapse ite" id="NavCollabs">
           <ul class="navbar-nav mr-auto fixplace" >
             <li class="nav-item ">
               <a class="nav-link button" data-micron="pop" href="/favorite">favorite </a>
@@ -45,11 +48,11 @@
               <a class="nav-link button"  data-micron="pop"href="/logout">Sign out</a>
             </li>
           </ul>
-         
-          <form class="form-inline my-2 my-lg-0 nav-item" action="/advincedsearch" method="POST">
-            <input class="form-control mr-sm-2" name="adv" type="search"  style="background-color: inherit;color: red; " placeholder="Advanced Search" aria-label="Search">
+          <form class="form-inline my-2   nav-item d-flex justify-content-center" action="/advincedsearch" method="POST">
+            <input class="form-control mr-sm-2 d-flex justify-content-center" name="adv" type="search"  style="background-color: inherit;color: red; border-top-color: blue; border-left: none; border-right: none; border-bottom-color: blue;width: 70%;" placeholder="Advanced Search" aria-label="Search">
             <button  class="btn my-2 my-sm-0  btn1"  data-micron="groove"  type="submit"> <i class="fas fa-search"></i> </button>
           </form>
+    
         </div>
       </nav>
       <form class="form-inline my-2 mb-5  nav-item d-flex justify-content-center " method="POST" action="/search">
@@ -67,12 +70,15 @@
     <head>
       <meta charset="utf-8">
       <meta name="description" content="Free anime site">
-      <meta name="keywords" content="anime, انمي, مشاهدة انميات , animes2020 ,  animes ,<%=ep.discribtion %>,تش ام انمي ,انمي قاتل الشياطين">
+      <meta name="keywords" content="anime, انمي, مشاهدة انميات , animes2020 ,  animes ,تش ام انمي ,انمي قاتل الشياطين">
       <meta name="author" content="Hamza Nael">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>MH anime</title>
       <meta name="google-site-verification" content="AjnD-UK6ElH8-dDvHMPeK8vgd58j0FWpE-Al_YgYx7w" />
       <link rel="icon" type="image/png" href="/imeges/m.png" sizes="48×48" />
+      <link rel="alternate" href="https://mhanime.herokuapp.com/" hreflang="ar" />
+<link rel="alternate" href="https://mhanime.herokuapp.com/" hreflang="en" />
+
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
       <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Great+Vibes&family=Sriracha&display=swap"
@@ -92,22 +98,23 @@
     
     <body>
       <nav class="navbar navbar-expand-lg  nav1">
-    
+
         <a class="navbar-brand" href="/">M&H</a>
-        <button data-micron="pop" class="navbar-toggler btn1" type="button" data-toggle="collapse" data-target="#NavCollabs"
-          aria-expanded="false" aria-label="Toggle navigation">
-          <span  data-micron="pop" class="navbar-toggler-icon"><i class="fas fa-angle-double-down"></i></span>
-        </button>
+        <button data-micron="pop" class="navbar-toggler btn1 btn2" type="button" data-toggle="collapse" data-target="#NavCollabs"
+        aria-expanded="false" aria-label="Toggle navigation">
+     <span  data-micron="pop" class="navbar-toggler-icon"><i data-micron="pop" class="fas fa-angle-double-down"></i></span>
+    </button>
     
-        <div class="collapse navbar-collapse" id="NavCollabs">
-          <ul class="navbar-nav mr-auto">
+        <div class="collapse navbar-collapse ite" id="NavCollabs">
+          <ul class="navbar-nav mr-auto fixplace">
             <li class="nav-item ">
-              <a class="nav-link " data-micron="pop" href="/login">Sign in</a>
+              <a class="nav-link button" data-micron="pop" href="/login">Sign in</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-micron="pop" href="/signup">Sign up</a>
+              <a class="nav-link button" data-micron="pop" href="/signup">Sign up</a>
             </li>
           </ul>
+         
         </div>
       </nav>
       <form class="form-inline my-2 mb-5  nav-item d-flex justify-content-center " method="POST" action="/search">
@@ -120,18 +127,18 @@
 <% } %>
 <section class="epPage">
     <div class="container">
-        <h1 style="text-align: center; margin: 1.5rem; "><%=ep.discribtion %> </h1>
+        <h1 style="text-align: center; margin: 1.5rem;color: white; " ><%=ep.discribtion %> </h1>
         <div class=" row"> 
             <div class="col-lg-6" style="text-align: center;">
                 <ul class="pagination justify-content-center">
                     <li class="page-item" style="margin-right: 1rem;">
-                        <a class="page-link" style="background-color: red;color: wheat;" href=<%= ep.server1 %> 
-                            onclick="return loadIframe('ifrm', this.href);"> <i class="fab fa-maxcdn" style="padding-right: 1rem;"></i> Mega</a>
+                        <a class="page-link" style="background-color: red;color: white;border-radius: 50px;border: none;" href=<%= ep.server1 %> 
+                            onclick="return loadIframe('ifrm', this.href);"> <i class="fab fa-maxcdn" style="padding-right: 1rem;"></i> Server 1</a>
                     </li>
                     <li class="page-item" style="margin-left: 1rem;">
-                        <a class="page-link" style="color: blue; background-color: green;" href=<%= ep.server2 %>
+                        <a class="page-link" style="color: red; background-color: white;border-radius: 50px;border: none;" href=<%= ep.server2 %>
                             onclick="return loadIframe('ifrm', this.href);"> <i style="padding-right: 1rem;"
-                            class="fab fa-google-drive"></i> Google Drive</a>
+                            class="fab fa-google-drive"></i> Server 2</a>
                     </li>
                 </ul>
                 <div class="iframe">
@@ -141,22 +148,18 @@
                     </iframe>
                 </div>
 
-                <div class="dropdown show" style="background-color: inherit;">
-                    <a class="btn btn-dark " href=""  role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false" style="padding:1rem; margin-top: 1rem;">
+                
+                    <a class="btn btn-dark " href=" href=<%= ep.link1 %>"  role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" style="padding:1rem;margin-top: 1rem;margin-bottom: 1rem;font-size: 1.5rem;">
                         <i class="fas fa-download"></i> تحميل الحلقه
                     </a>
 
-                    <div class="dropdown-menu" style="background-color: inherit; aria-labelledby=" dropdownMenuLink">
-                        <a class="dropdown-item" style="background-color: red;padding: 1rem; color: white;"  href=<%= ep.link1 %>><i class="fab fa-maxcdn" style="padding-right: 1rem;"></i> Mega</a>
-                        <a class="dropdown-item" style="background-color: forestgreen;padding: 1rem;  color: white;" href=<%= ep.link2 %>> <i style="padding-right: 1rem;"
-                                class="fab fa-google-drive"></i> Google Drive</a>
-                    </div>
-                </div>
+                   
+                
             </div>
 
             <div class="col-lg-6" style="text-align: center;">
-                <h1 ><a href="/animePage/<%= Anime.title %>" style="color: red;"><%= Anime.title %> </a></h1>
+                <h1 ><a href="/animePage/<%= Anime.title %>" style="color: white;"><%= Anime.title %> </a></h1>
                 <div class="list-group" style="text-align: right;">
                     <% Anime.EP.forEach(element => { %>
                     <a href="/epPgae/<%= Anime.title %>/<%=element.epNumber%>" class="list-group-item list-group-item-action" id=<%=element.epNumber%> ><i class="fas fa-play icon-view "></i> <%= element.epNumber %>  الحلقه </a>

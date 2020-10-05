@@ -11,6 +11,9 @@
           <title>MH anime</title>
           <meta name="google-site-verification" content="AjnD-UK6ElH8-dDvHMPeK8vgd58j0FWpE-Al_YgYx7w" />
           <link rel="icon" type="image/png" href="/imeges/m.png" sizes="48×48"/>
+          <link rel="alternate" href="https://mhanime.herokuapp.com/" hreflang="ar" />
+<link rel="alternate" href="https://mhanime.herokuapp.com/" hreflang="en" />
+
           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
             integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
           <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Great+Vibes&family=Sriracha&display=swap"
@@ -29,14 +32,14 @@
   <body>
   
     <nav class="navbar navbar-expand-lg  nav1">
-  
+
       <a class="navbar-brand" href="/" >M&H</a>
-      <button data-micron="pop" class="navbar-toggler btn1" type="button" data-toggle="collapse" data-target="#NavCollabs"
+      <button data-micron="pop" class="navbar-toggler btn1 btn2" type="button" data-toggle="collapse" data-target="#NavCollabs"
            aria-expanded="false" aria-label="Toggle navigation">
         <span  data-micron="pop" class="navbar-toggler-icon"><i data-micron="pop" class="fas fa-angle-double-down"></i></span>
       </button>
   
-      <div class="collapse navbar-collapse" id="NavCollabs">
+      <div class="collapse navbar-collapse ite" id="NavCollabs">
         <ul class="navbar-nav mr-auto fixplace" >
           <li class="nav-item ">
             <a class="nav-link button" data-micron="pop" href="/favorite">favorite </a>
@@ -45,8 +48,8 @@
             <a class="nav-link button"  data-micron="pop"href="/logout">Sign out</a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0 nav-item" action="/advincedsearch" method="POST">
-          <input class="form-control mr-sm-2" name="adv" type="search"  style="background-color: inherit;color: red; " placeholder="Advanced Search" aria-label="Search">
+        <form class="form-inline my-2   nav-item d-flex justify-content-center" action="/advincedsearch" method="POST">
+          <input class="form-control mr-sm-2 d-flex justify-content-center" name="adv" type="search"  style="background-color: inherit;color: red; border-top-color: blue; border-left: none; border-right: none; border-bottom-color: blue;width: 70%;" placeholder="Advanced Search" aria-label="Search">
           <button  class="btn my-2 my-sm-0  btn1"  data-micron="groove"  type="submit"> <i class="fas fa-search"></i> </button>
         </form>
   
@@ -74,6 +77,9 @@
     <title>MH anime</title>
     <meta name="google-site-verification" content="AjnD-UK6ElH8-dDvHMPeK8vgd58j0FWpE-Al_YgYx7w" />
     <link rel="icon" type="image/png" href="/imeges/m.png" sizes="48×48" />
+    <link rel="alternate" href="https://mhanime.herokuapp.com/" hreflang="ar" />
+<link rel="alternate" href="https://mhanime.herokuapp.com/" hreflang="en" />
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Great+Vibes&family=Sriracha&display=swap"
@@ -93,22 +99,23 @@
   
   <body>
     <nav class="navbar navbar-expand-lg  nav1">
-  
+
       <a class="navbar-brand" href="/">M&H</a>
-      <button data-micron="pop" class="navbar-toggler btn1" type="button" data-toggle="collapse" data-target="#NavCollabs"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span  data-micron="pop" class="navbar-toggler-icon"><i class="fas fa-angle-double-down"></i></span>
-      </button>
+      <button data-micron="pop" class="navbar-toggler btn1 btn2" type="button" data-toggle="collapse" data-target="#NavCollabs"
+      aria-expanded="false" aria-label="Toggle navigation">
+   <span  data-micron="pop" class="navbar-toggler-icon"><i data-micron="pop" class="fas fa-angle-double-down"></i></span>
+  </button>
   
-      <div class="collapse navbar-collapse" id="NavCollabs">
-        <ul class="navbar-nav mr-auto">
+      <div class="collapse navbar-collapse ite" id="NavCollabs">
+        <ul class="navbar-nav mr-auto fixplace">
           <li class="nav-item ">
-            <a class="nav-link " data-micron="pop" href="/login">Sign in</a>
+            <a class="nav-link button" data-micron="pop" href="/login">Sign in</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-micron="pop" href="/signup">Sign up</a>
+            <a class="nav-link button" data-micron="pop" href="/signup">Sign up</a>
           </li>
         </ul>
+       
       </div>
     </nav>
     <form class="form-inline my-2 mb-5  nav-item d-flex justify-content-center " method="POST" action="/search">
@@ -137,7 +144,7 @@
   </div>
 </section>
 <section class="epNumber" style="color: red;">
-  <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+  <a class="btn btn-primary" style="background-color: #0a0a0a47; border: none;" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
     معلومات اضافيه
   </a>
   <div class="collapse" id="collapseExample">
@@ -146,16 +153,17 @@
         <tbody>
           <tr>
         
-            <td>العرض الدعائي</td>
-            <td>مده العرض</td>
+            
+            <td><%= Anime.date %></td>
             <td>تاريخ الانتاج</td>
           </tr>
           <tr>
-          
-            <td><a href="<%= Anime.trailer %> "> هنا</a></td>
             <td><%= Anime.time %></td>
-            <td><%= Anime.date %></td>
-           
+            <td>مده العرض</td>
+          </tr>
+          <tr>
+            <td><a href="<%= Anime.trailer %> "> هنا</a></td>
+            <td>العرض الدعائي</td>
           </tr>
           
         </tbody>

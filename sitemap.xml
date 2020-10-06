@@ -9,47 +9,62 @@
 
 <url>
   <loc>https://mhanime.herokuapp.com/</loc>
-  <lastmod>2020-10-04T14:22:20+00:00</lastmod>
+  <lastmod>2020-10-06T15:06:32+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://mhanime.herokuapp.com/login</loc>
-  <lastmod>2020-10-04T14:22:20+00:00</lastmod>
+  <lastmod>2020-10-06T15:06:32+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://mhanime.herokuapp.com/signup</loc>
-  <lastmod>2020-10-04T14:22:20+00:00</lastmod>
+  <lastmod>2020-10-06T15:06:32+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://mhanime.herokuapp.com/animePage/Dungeon%20ni%20Deai%20wo%20Motomeru%20no%20wa%20Machigatteiru%20Darou%20ka%20II</loc>
-  <lastmod>2020-10-04T14:22:20+00:00</lastmod>
+  <loc>https://mhanime.herokuapp.com/animePage/Maou%20Gakuin%20no%20Futekigousha:%20Shijou%20Saikyou%20no%20Maou%20no%20Shiso,%20Tensei%20shite%20Shison-tachi%20no%20Gakkou%20e</loc>
+  <lastmod>2020-10-06T15:06:32+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://mhanime.herokuapp.com/animePage/</loc>
-  <lastmod>2020-10-04T14:22:20+00:00</lastmod>
+  <loc>https://mhanime.herokuapp.com/epPgae/Maou%20Gakuin%20no%20Futekigousha:%20Shijou%20Saikyou%20no%20Maou%20no%20Shiso,%20Tensei%20shite%20Shison-tachi%20no%20Gakkou%20e/3</loc>
+  <lastmod>2020-10-06T15:06:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mhanime.herokuapp.com/epPgae/Maou%20Gakuin%20no%20Futekigousha:%20Shijou%20Saikyou%20no%20Maou%20no%20Shiso,%20Tensei%20shite%20Shison-tachi%20no%20Gakkou%20e/2</loc>
+  <lastmod>2020-10-06T15:06:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mhanime.herokuapp.com/epPgae/Maou%20Gakuin%20no%20Futekigousha:%20Shijou%20Saikyou%20no%20Maou%20no%20Shiso,%20Tensei%20shite%20Shison-tachi%20no%20Gakkou%20e/1</loc>
+  <lastmod>2020-10-06T15:06:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://mhanime.herokuapp.com/Catagory/Action</loc>
+  <lastmod>2020-10-06T15:06:32+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://mhanime.herokuapp.com/Catagory/Comedy</loc>
-  <lastmod>2020-10-04T14:22:20+00:00</lastmod>
+  <lastmod>2020-10-06T15:06:32+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://mhanime.herokuapp.com/Catagory/Slice-of-Life</loc>
-  <lastmod>2020-10-04T14:22:20+00:00</lastmod>
+  <loc>https://mhanime.herokuapp.com/Catagory/Drama</loc>
+  <lastmod>2020-10-06T15:06:32+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://mhanime.herokuapp.com/Catagory/Romance</loc>
-  <lastmod>2020-10-04T14:22:20+00:00</lastmod>
+  <loc>https://mhanime.herokuapp.com/Catagory/Magic</loc>
+  <lastmod>2020-10-06T15:06:32+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://mhanime.herokuapp.com/Catagory/Supernatural</loc>
-  <lastmod>2020-10-04T14:22:20+00:00</lastmod>
+  <lastmod>2020-10-06T15:06:32+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 

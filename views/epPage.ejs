@@ -127,7 +127,7 @@
 <% } %>
 <section class="epPage">
     <div class="container">
-        <h1 style="text-align: center; margin: 1.5rem;color: white; " ><%=ep.discribtion %> </h1>
+        <h3 style="text-align: center; margin: 1.5rem;color: white; " ><%=ep.discribtion %> </h3>
         <div class=" row"> 
             <div class="col-lg-6" style="text-align: center;">
                 <ul class="pagination justify-content-center">
@@ -150,17 +150,18 @@
                 </div>
 
                 
-                    <a class="btn btn-dark " href="//<%=ep.link1 %>"  role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false" style="padding:1rem;margin-top: 1rem;margin-bottom: 1rem;font-size: 1.5rem;">
+                    <a class="btn btn-dark " href="//<%=ep.link1 %>"  target="_blank" id="dropdownMenuLink" 
+                     " style="padding:1rem;margin-top: 1rem;margin-bottom: 1rem;font-size: 1.5rem;">
                         <i class="fas fa-download"></i> تحميل الحلقه
                     </a>
 
-                   
+
+                 
                 
             </div>
 
             <div class="col-lg-6" style="text-align: center;">
-                <h1 ><a href="/animePage/<%= Anime.title %>" style="color: white;"><%= Anime.title %> </a></h1>
+                <h3 ><a href="/animePage/<%= Anime.title %>" style="color: white;"><%= Anime.title %> </a></h3>
                 <div class="list-group" style="text-align: right;">
                     <% Anime.EP.forEach(element => { %>
                     <a href="/epPgae/<%= Anime.title %>/<%=element.epNumber%>" class="list-group-item list-group-item-action" id=<%=element.epNumber%> ><i class="fas fa-play icon-view "></i> <%= element.epNumber %>  الحلقه </a>

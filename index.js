@@ -94,7 +94,6 @@ const EP = mongoose.model(
       server1:String,
       server2:String,
       link1:String,
-      link2:String
     },{ strict: false })
   );    
 UserSchema.plugin(passportLocalMongoose);
@@ -184,7 +183,8 @@ const createEP = function (AnimeNameId, eP) {
                         imgLink: docEP.imgLink,
                         discribtion: docEP.discribtion,
                         server1:docEP.server1,
-                        server2:docEP.server2
+                        server2:docEP.server2,
+                        link1:docEP.link1
                     }
                 }
             }, {
@@ -517,11 +517,10 @@ app.post('/saveEP', (req, res) => {
                 title : req.body.title,
                 epNumber : req.body.epNumber,
                 imgLink : found.CoverImg,
-                discribtion:req.body.discribtion,
+                discribtion:req.body.title+" EP " + req.body.epNumber ,
                 server1:req.body.server1,
                 server2:req.body.server2,
                 link1:req.body.link1,
-                link2:req.body.link2
             };
 
             createEP(found._id,newEp);
@@ -555,7 +554,7 @@ app.post('/editEP', (req, res) => {
         }
         if(s1!=""&&s2===""&&d==="" ){
             EP.findOneAndUpdate({title:req.body.title ,epNumber:n},{ $set: {server1 : s1 }},{useFindAndModify:false},(err,doc)=>{
-                AnimeName.updateOne({'EP.epNumber': int}, {'$set': {
+                AnimeName.updateOne({title:req.body.title,'EP.epNumber': int}, {'$set': {
                     'EP.$.server1':s1,
                             }}, function(err,raw) {console.log(raw); });
 
@@ -565,7 +564,7 @@ app.post('/editEP', (req, res) => {
         }
        if(s1==="" &&s2!="" &&d==="" ){
         EP.findOneAndUpdate({title:req.body.title ,epNumber:n},{ $set: {server2 : s2 }},{useFindAndModify:false},(err,doc)=>{
-           AnimeName.updateOne({'EP.epNumber': int}, {'$set': {
+           AnimeName.updateOne({title:req.body.title,'EP.epNumber': int}, {'$set': {
     'EP.$.server2':s2,
             }}, function(err,raw) {console.log(raw); });
         });
@@ -573,7 +572,7 @@ app.post('/editEP', (req, res) => {
   
         if(s1==="" &&s2==="" &&d!="" ){
             EP.findOneAndUpdate({title:req.body.title ,epNumber:n},{ $set: {discribtion : d }},{useFindAndModify:false},(err,doc)=>{
-                AnimeName.updateOne({'EP.epNumber': int}, {'$set': {
+                AnimeName.updateOne({title:req.body.title,'EP.epNumber': int}, {'$set': {
          'EP.$.discribtion':d,
                  }}, function(err,raw) {console.log(raw); });
              });
@@ -581,7 +580,7 @@ app.post('/editEP', (req, res) => {
         
         if(s1!="" &&s2!="" &&d==="" ){
             EP.findOneAndUpdate({title:req.body.title ,epNumber:n},{ $set: {server2 : s2,server1:s1 }},{useFindAndModify:false},(err,doc)=>{
-                AnimeName.updateOne({'EP.epNumber': int}, {'$set': {
+                AnimeName.updateOne({title:req.body.title,'EP.epNumber': int}, {'$set': {
          'EP.$.server2':s2,
          'EP.$.server1':s1
                  }}, function(err,raw) {console.log(raw); });
@@ -590,7 +589,7 @@ app.post('/editEP', (req, res) => {
 
         if(s1!="" &&s2==="" &&d!="" ){
             EP.findOneAndUpdate({title:req.body.title ,epNumber:n},{ $set: {discribtion : d,server1:s1 }},{useFindAndModify:false},(err,doc)=>{
-                AnimeName.updateOne({'EP.epNumber': int}, {'$set': {
+                AnimeName.updateOne({title:req.body.title,'EP.epNumber': int}, {'$set': {
          'EP.$.discribtion':d,
          'EP.$.server1':s1
                  }}, function(err,raw) {console.log(raw); });
@@ -599,7 +598,7 @@ app.post('/editEP', (req, res) => {
 
         if(s1==="" &&s2!="" &&d!="" ){
             EP.findOneAndUpdate({title:req.body.title ,epNumber:n},{ $set: {discribtion : d,server2:s2 }},{useFindAndModify:false},(err,doc)=>{
-                AnimeName.updateOne({'EP.epNumber': int}, {'$set': {
+                AnimeName.updateOne({title:req.body.title,'EP.epNumber': int}, {'$set': {
          'EP.$.discribtion':d,
          'EP.$.server2':s2
                  }}, function(err,raw) {console.log(raw); });
@@ -608,7 +607,7 @@ app.post('/editEP', (req, res) => {
 
         if(s1!="" &&s2!="" &&d!="" ){
             EP.findOneAndUpdate({title:req.body.title ,epNumber:n},{ $set: {discribtion : d,server1:s1 ,server2:s2}},{useFindAndModify:false},(err,doc)=>{
-                AnimeName.updateOne({'EP.epNumber': int}, {'$set': {
+                AnimeName.updateOne({title:req.body.title,'EP.epNumber': int}, {'$set': {
          'EP.$.discribtion':d,
          'EP.$.server1':s1,
          'EP.$.server2':s2
@@ -750,8 +749,6 @@ const num =parseInt( req.params.epNumber);
 AnimeName.findOne(
     { title:tit} ,(err,found)=>{
      
-            
-        
         if(req.isAuthenticated()){
         res.render("epPage",{logged:true, ep:found.EP[num-1],Anime:found}); }
         else{

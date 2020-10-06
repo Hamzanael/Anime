@@ -192,6 +192,62 @@ body {
 
 }
 
+.content::-webkit-scrollbar {
+    width: 10px;
+    height: 1px;
+}
+
+/* Track */
+.content::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(41, 2, 2);
+    border-radius: 10px;
+}
+
+
+
+
+/* Handle on hover */
+.content::-webkit-scrollbar-thumb {
+    background: #404040;
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+    background: #505050;
+}
+
+.content::-webkit-scrollbar-thumb:active {
+    background: #404040;
+}
+
+/* Buttons */
+.content::-webkit-scrollbar-button {
+    border-style: solid;
+    height: 16px;
+    width: 16px;
+}
+
+
+/* Up */
+.content::-webkit-scrollbar-button:vertical:decrement {
+    border-width: 0 7px 14px 7px;
+    border-color: transparent transparent #404040 transparent;
+}
+
+.content::-webkit-scrollbar-button:vertical:decrement:hover {
+    border-color: transparent transparent #505050 transparent;
+}
+
+
+/* Down */
+.content::-webkit-scrollbar-button:vertical:increment {
+    border-width: 14px 7px 0 7px;
+    border-color: #404040 transparent transparent transparent;
+}
+
+.content::-webkit-scrollbar-button:vertical:increment:hover {
+    border-color: #505050 transparent transparent transparent;
+}
+
 .MovieItem .content:hover {
     opacity: 1;
 }
@@ -209,6 +265,7 @@ body {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;
+
     padding-top: 40px;
 
 }

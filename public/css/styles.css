@@ -98,6 +98,10 @@ body {
     left: 0;
 
 }
+.carousel-caption{
+height: 300px;
+overflow: auto;
+}
 
 .carousel-item div {
     position: relative;

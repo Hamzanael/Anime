@@ -31,7 +31,7 @@ app.use(passport.session());
 
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://hamza:123@34.222.182.20/cool_db', {
+mongoose.connect('mongodb://admin:nh19991128119@34.222.194.200/admin', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });

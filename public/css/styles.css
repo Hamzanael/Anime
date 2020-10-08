@@ -66,6 +66,18 @@ background: linear-gradient(90deg, rgba(10,1,14,1) 25%, rgba(98,9,9,1) 49%, rgba
     font-size: 30px;
 }
 
+.full{
+    position: absolute;
+    right: 10px;
+    font-size: 1.5rem;
+    top: 15%;
+    background-color: inherit;
+    border: none;
+    color: red;
+}
+.full:hover{
+    color: blue;
+}
 
 /* **************************** */
 

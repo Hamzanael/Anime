@@ -232,7 +232,7 @@ get(function (req, res) {
 
     
 
-    var query =EP.find({}).sort({"_id":-1});
+    var query =EP.find({}).sort({"_id":-1}).limit(30);
     var query2 = AnimeName.find({}).sort({"_id":-1});
     var query3 = AnimeName.find({category:"Cartoon"}).sort({"_id":-1});
     var query4 = AnimeName.find({category:"Movies"}).sort({"_id":-1});

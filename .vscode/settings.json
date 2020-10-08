@@ -1,4 +1,8 @@
 {
-    "appService.defaultWebAppToDeploy": "/subscriptions/09f5bd85-ac86-46e0-9667-bd9f3868679c/resourceGroups/anime/providers/Microsoft.Web/sites/mhannime",
-    "appService.deploySubpath": "."
+    "appService.deploySubpath": ".",
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/09f5bd85-ac86-46e0-9667-bd9f3868679c/resourceGroups/anime/providers/Microsoft.Web/sites/mhtv"
 }

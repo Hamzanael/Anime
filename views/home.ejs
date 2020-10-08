@@ -20,8 +20,8 @@
                 <div class="carousel-item active " data-interval="2000">
                     <img src="/imeges/m.png"   class="d-block rounded mx-auto" alt="...">
                     <div class="carousel-caption ">
-                        <h5>Welcome to M&H anime</h5>
-                        <p>  We will display the greatest Anime only </p>
+                        <h5>Welcome to M&H TV</h5>
+                        <p>  We will display the greatest Shows only </p>
                     </div>
 
                 </div>
@@ -60,6 +60,8 @@
 <select name="" id="select-type" >
    <option data-micron="pop" value="1">Last ep</option>
    <option  data-micron="pop" value="2">all animes</option> 
+   <option  data-micron="pop" value="3">Cartoon</option> 
+   <option  data-micron="pop" value="4">Movies</option> 
 </select>
 
 </section>
@@ -109,6 +111,49 @@
         <% }) %>
     </section>
 
+    <section class="Content" id="cartoon">
+        <% cartoon.forEach(cart => { %>
+
+        <div class="MovieItem">
+       
+    <a title=<%=cart.title%>  href="/animePage/<%=cart.title%>" > 
+                        <div class="numr">
+                        <div> <%=cart.epNumbers%> </div>
+                        <div></div>
+                    </div>
+                         <img src=<%=cart.CoverImg %>  alt="" class="BGMovieItem">
+                   
+                    <div class="content">
+                          <div class="text">
+                      <%=cart.title %> 
+                    </div>
+                </div>
+              </a>
+        </div>
+        <% }) %>
+    </section>
+
+    <section class="Content" id="movie">
+        <% mov.forEach(movies => { %>
+
+        <div class="MovieItem">
+       
+    <a title=<%=movies.title%>  href="/animePage/<%=movies.title%>" > 
+                        <div class="numr">
+                        <div> <%=movies.epNumbers%> </div>
+                        <div></div>
+                    </div>
+                         <img src=<%=movies.CoverImg %>  alt="" class="BGMovieItem">
+                   
+                    <div class="content">
+                          <div class="text">
+                      <%=movies.title %> 
+                    </div>
+                </div>
+              </a>
+        </div>
+        <% }) %>
+    </section>
 
 
 
@@ -116,16 +161,37 @@
     <script>
         $(function(){
         $("#ani").hide(0);
+        $("#movie").hide(0);
+        $("#cartoon").hide(0);
    //      $("#side").hide(0);   
             $("#select-type").change(function(){
                 var  selectValue = $(this).children("option:selected").val();
                 switch(selectValue){
                     case "1": $("#ani").fadeOut(1000);
-                            $("#ep").fadeIn(1500); break;
-
+                            $("#ep").fadeIn(1500); 
+                            $("#cartoon").fadeOut(1000);
+                            $("#movie").fadeOut(1000);
+                            break;
                     case "2":$("#ani").fadeIn(1000);
-                            $("#ep").fadeOut(1500); break;
-
+                            $("#ep").fadeOut(1500); 
+                            $("#cartoon").fadeOut(1000);
+                            $("#movie").fadeOut(1000);
+                            break;
+                    case "3":
+                    $("#cartoon").fadeIn(1000);
+                            $("#ep").fadeOut(1500);
+                            $("#ani").fadeOut(1000);
+                            $("#movie").fadeOut(1000);
+                    break;
+                    
+                    case "4" : 
+                    $("#cartoon").fadeOut(1000);
+                            $("#ep").fadeOut(1500);
+                            $("#ani").fadeOut(1000);
+                            $("#movie").fadeIn(1000);
+                    break;
+                    
+                    break;
         
 
                 }

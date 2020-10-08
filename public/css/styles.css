@@ -295,7 +295,7 @@ overflow: auto;
     border-radius: 30%;
     padding: 10px 0 0 0;
     color: white;
-    font-family: 'Great Vibes', cursive;
+    font-family: 'Courgette', cursive;
 
 }
 
@@ -328,6 +328,14 @@ select option[value="1"] {
 select option[value="2"] {
     background: rgb(49, 3, 17);
 }
+select option[value="3"] {
+    background: rgb(49, 3, 17);
+}
+
+select option[value="4"] {
+    background: rgb(49, 3, 17);
+}
+
 
 /*Log in style */
 .container .card {

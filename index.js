@@ -837,8 +837,11 @@ res.render("deletAnime");
 
 app.get('/sitemap.xml', (req, res) => {
     res.contentType('application/xml');
-    res.sendFile(path.join(__dirname , 'sitemap.xml'))
+    res.sendFile(path.join(__dirname , '/sitemap.xml'))
 });
+app.get('/robots.txt', (req, res) => {
+    res.sendFile(__dirname + '/public/robots.txt');
+})
 
 
 app.listen(port || 3000, function () {

@@ -1,0 +1,3 @@
+Sitemap: https://mhtv.azurewebsites.net/sitemap.xml
+User-agent: *
+Disallow:

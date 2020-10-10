@@ -5,6 +5,10 @@
     <%- include('header'); -%>
 <% } %>
 
+
+
+
+  
 <!-- <div class="side" id="side">
 <ul>
     <a href="http://43folderstech.net">  <li> Facebook</li></a> 
@@ -56,13 +60,9 @@
 
     </section>
 
+    
 <section class="mid-nav">
-<select name="" id="select-type" >
-   <option data-micron="pop" value="1">Last ep</option>
-   <option  data-micron="pop" value="2">all animes</option> 
-   <option  data-micron="pop" value="3">Cartoon</option> 
-   <option  data-micron="pop" value="4">Movies</option> 
-</select>
+<h2> Last ep </h2>
 
 </section>
 
@@ -89,72 +89,7 @@
         <% }) %>
     </section>
 
-    <section class="Content" id="ani">
-        <% Animes.forEach(anime => { %>
-
-        <div class="MovieItem">
-       
-    <a title=<%=anime.title%>  href="/animePage/<%=anime.title%>" > 
-                        <div class="numr">
-                        <div> <%=anime.epNumbers%> </div>
-                        <div></div>
-                    </div>
-                         <img src=<%=anime.CoverImg %>  alt="" class="BGMovieItem">
-                   
-                    <div class="content">
-                          <div class="text">
-                      <%=anime.title %> 
-                    </div>
-                </div>
-              </a>
-        </div>
-        <% }) %>
-    </section>
-
-    <section class="Content" id="cartoon">
-        <% cartoon.forEach(cart => { %>
-
-        <div class="MovieItem">
-       
-    <a title=<%=cart.title%>  href="/animePage/<%=cart.title%>" > 
-                        <div class="numr">
-                        <div> <%=cart.epNumbers%> </div>
-                        <div></div>
-                    </div>
-                         <img src=<%=cart.CoverImg %>  alt="" class="BGMovieItem">
-                   
-                    <div class="content">
-                          <div class="text">
-                      <%=cart.title %> 
-                    </div>
-                </div>
-              </a>
-        </div>
-        <% }) %>
-    </section>
-
-    <section class="Content" id="movie">
-        <% mov.forEach(movies => { %>
-
-        <div class="MovieItem">
-       
-    <a title=<%=movies.title%>  href="/animePage/<%=movies.title%>" > 
-                        <div class="numr">
-                        <div> <%=movies.epNumbers%> </div>
-                        <div></div>
-                    </div>
-                         <img src=<%=movies.CoverImg %>  alt="" class="BGMovieItem">
-                   
-                    <div class="content">
-                          <div class="text">
-                      <%=movies.title %> 
-                    </div>
-                </div>
-              </a>
-        </div>
-        <% }) %>
-    </section>
-
+  
 
 
 

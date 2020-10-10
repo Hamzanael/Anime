@@ -232,41 +232,25 @@ get(function (req, res) {
 
     
 
-    var query =EP.find({}).sort({"_id":-1}).limit(30);
+    var query =EP.find({}).sort({"_id":-1}).limit(20);
     var query2 = AnimeName.find({}).sort({"_id":-1});
-    var query3 = AnimeName.find({category:"Cartoon"}).sort({"_id":-1});
-    var query4 = AnimeName.find({category:"Movies"}).sort({"_id":-1});
+
     query.exec(function(err, ep) {
         if (!err) {
             query2.exec(function(err, anime) {
-                query3.exec(function(error,cart){
-                    query4.exec(function(err1,mov){
-
-                        if (!err) {
-                            if(req.isAuthenticated()){
-                             res.render("home", {
-                                 all: ep,
-                                 Animes: anime,
-                                 cartoon:cart,
-                                 mov:mov,
-                                 logged:true
-                             });}else{
-                                 res.render("home", {
-                                     all: ep,
-                                     Animes: anime,
-                                     cartoon:cart,
-                                     mov:mov,
-                                     logged:false
-                                 });
-                             }
-                      }
-
-
-                    });
-
-
-
-                });
+                if(req.isAuthenticated()){
+                    res.render("home", {
+                        all: ep,
+                        Animes: anime,
+                      
+                        logged:true
+                    });}else{
+                        res.render("home", {
+                            all: ep,
+                            Animes: anime,
+                            logged:false
+                        });
+                    }
 
 
                
@@ -729,7 +713,26 @@ app.post('/signup', (req, res) => {
 
 
 });
-
+app.get('/moviesPage', (req, res) => {
+    var query4 = AnimeName.find({category:"Movies"}).sort({"_id":-1});
+    query4.exec(function(err,found){
+        if(req.isAuthenticated()){
+            res.render("animePages",{Animes:found,logged:true});
+        }else{
+            res.render("animePages",{Animes:found,logged:false});
+        }
+    });
+});
+app.get('/cartoonPage', (req, res) => {
+    var query4 = AnimeName.find({category:"Cartoon"}).sort({"_id":-1});
+    query4.exec(function(err,found){
+        if(req.isAuthenticated()){
+            res.render("animePages",{Animes:found,logged:true});
+        }else{
+            res.render("animePages",{Animes:found,logged:false});
+        }
+    });
+});
 
 
 

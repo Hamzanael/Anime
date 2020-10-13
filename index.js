@@ -233,7 +233,7 @@ get(function (req, res) {
     
 
     var query =EP.find({}).sort({"_id":-1}).limit(20);
-    var query2 = AnimeName.find({}).sort({"_id":-1});
+    var query2 = AnimeName.find({}).sort({"_id":-1}).limit(20);
 
     query.exec(function(err, ep) {
         if (!err) {
@@ -737,13 +737,13 @@ app.get('/cartoonPage', (req, res) => {
 
 
 app.get('/animePage', (req, res) => {
-    AnimeName.find({},(err,found)=>{
+    var query4 = AnimeName.find({}).sort({"_id":-1});
+    query4.exec(function(err,found){
         if(req.isAuthenticated()){
             res.render("animePages",{Animes:found,logged:true});
         }else{
             res.render("animePages",{Animes:found,logged:false});
         }
-       
     });
    
 });

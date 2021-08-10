@@ -31,7 +31,7 @@ app.use(passport.session());
 
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://admin:nh19991128119@34.222.194.200/admin', {
+mongoose.connect('mongodb://hamza:McIx3ITXipgKri1x3s57voP2oi2HCZg4fNnuUYB0CE74A8vlSduwSl0kvUgIdUnqOnlHeaFCNP0PX5a2LcyDfQ%3D%3D@hamza.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&maxIdleTimeMS=120000&appName=@hamza@/anime', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
